@@ -125,19 +125,19 @@ public class Parking {
                 IrParking1(karel);
                 
                 revisarzona(karel);
-                JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result);
+                JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result+" A LAS: "+hora+":"+minutos);
                 }
                 else if(result==2){
                  IrParking2(karel);
                 
                 revisarzona(karel);
-               JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result);
+               JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result+" A LAS: "+hora+":"+minutos);
                 }
                 else if(result==3){
                  IrParking3(karel);
                 
                 revisarzona(karel);
-                JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result);
+                JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result+" A LAS: "+hora+":"+minutos);
                 }
     }
 
