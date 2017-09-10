@@ -181,12 +181,37 @@ public class Parking {
         karel.turnLeft();
         karel.turnLeft();
         karel.turnLeft();
-        for(int i=0;i<3;i++){
         if(karel.canPickThing()){
         karel.pickThing();
+        karel.move();
+        karel.move();
+        karel.move();
         }
-        else{karel.move();}}
-        
+        else{karel.move();
+        if(karel.canPickThing()){
+        karel.pickThing();
+        karel.move();
+        karel.move();}
+        else{karel.move();
+        if(karel.canPickThing()){
+        karel.pickThing();
+        karel.move();
+        }
+        else{karel.move();
+        if(karel.canPickThing()){
+        karel.pickThing();
+        }}}}
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.turnLeft();
                                 }
     
     public static void main(String[] args){
