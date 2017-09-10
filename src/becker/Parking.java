@@ -19,20 +19,54 @@ public class Parking {
             karel.turnLeft();
         }
     }
-        public static void volvercarril(Robot karel){
+                    public static void revisarzona(Robot karel){
+        do{
+            karel.move();
+        }
+        while(karel.canPickThing()!=true);
+        }
+                        public static void menu(){
+    int opcion=0; 
+    String op="";
+    op=JOptionPane.showInputDialog("SELECCIONE UNA OPCION= \n"
+            + "1. Ingresar un vehiculo\n"
+            + "2.Sacar un vehiculo\n"
+            + "3.mostrar vehiculos de una seccion\n"
+            + "4.Generar reporte de ingresos");
+    opcion=Integer.parseInt(op);
+    switch(opcion){
+        case 1:{
+            Ingresarcarro();
+            break;
+        }
+        case 2:{
+            
+            break;
+        }
+        case 3:{
+            break;
+        }
+    }
+}
+                            public static void Ingresarcarro(){
+        
+        String placa=JOptionPane.showInputDialog(null,"placa");
+    
+    }
+
+    public static void volvercarril(Robot karel){
         int x=-2;
         do{
             karel.move();
         }
         while(karel.getStreet()!=x);
     }
-    public static void girar180(Robot karel){
+        public static void girar180(Robot karel){
         for (int j=0; j<2; j++){
             karel.turnLeft();
         }
     }
-   
-    public static void IrParking1(Robot karel){
+             public static void IrParking1(Robot karel){
         for (int i=0; i<16; i++){
             karel.move();
         }
@@ -42,7 +76,7 @@ public class Parking {
         karel.move();
         karel.move();
     }
-    public static void IrParking2(Robot karel){
+                public static void IrParking2(Robot karel){
         for (int i=0; i<12; i++){
             karel.move();
         }
@@ -52,7 +86,7 @@ public class Parking {
         karel.move();
         karel.move();
     }
-    public static void IrParking3(Robot karel){
+                    public static void IrParking3(Robot karel){
         for (int i=0; i<8; i++){
             karel.move();
         }
@@ -62,21 +96,21 @@ public class Parking {
         karel.move();
         karel.move();
     }
-    public static void VolverParking1(Robot karel){
+                        public static void VolverParking1(Robot karel){
 
         karel.turnLeft();
         for (int i=0; i<16; i++){
             karel.move();
         }
     }
-    public static void VolverParking2(Robot karel){
+                            public static void VolverParking2(Robot karel){
 
         karel.turnLeft();
         for (int i=0; i<12; i++){
             karel.move();
         }
     }
-    public static void VolverParking3(Robot karel){
+                                public static void VolverParking3(Robot karel){
 
         karel.turnLeft();
         for (int i=0; i<8; i++){
@@ -188,38 +222,6 @@ public class Parking {
         volvercarril(karel);
         VolverParking1(karel);
         karel.putThing();
-    }
-            public static void revisarzona(Robot karel){
-        do{
-            karel.move();
-        }
-        while(karel.canPickThing()!=true);
-        }
-    public static void menu(){
-    int opcion=0; 
-    String op="";
-    op=JOptionPane.showInputDialog("SELECCIONE UNA OPCION= \n"
-            + "1. Ingresar un vehiculo\n"
-            + "2.Sacar un vehiculo\n"
-            + "3.mostrar vehiculos de una seccion\n"
-            + "4.Generar reporte de ingresos");
-    opcion=Integer.parseInt(op);
-    switch(opcion){
-        case 1:{
-            Ingresarcarro();
-            break;
-        }
-        case 2:{
-            
-            break;
-        }
-        case 3:{
-            break;
-        }
-    }
-}
-    public static void Ingresarcarro(){
-    String placa=JOptionPane.showInputDialog(null,"placa");
     }
 
 }
