@@ -102,12 +102,27 @@ public class Parking {
      else if((cont3<cont2)&&(cont2<cont1)){
          numero= 3;
      }
-     else if(cont1==cont2){
+     else if((cont1==cont2)&&(cont2<cont3)){
          numero = (int) (Math.random() * 2) + 1;
      }
-     else if(cont2==cont3){
+     else if((cont1==cont2)&&(cont2>cont3)){
+         numero = 3;
+     }
+     else if((cont2==cont3)&&(cont3<cont1)){
       numero = (int) (Math.random() * 3) + 2;
-     }    
+     }  
+     else if((cont2==cont3)&&(cont3>cont1)){
+      numero = 1;
+     }
+     else if((cont1==cont3)&&(cont1<cont2)){
+      //función para elegir entre 1 y 3 si son iguales
+     }  
+     else if((cont1==cont3)&&(cont1>cont2)){
+      numero = 2;
+     }
+      else if((cont1==cont3)&&(cont1==cont2)){
+      //función para elegir si todas son iguales
+     }
      return numero;
  }
                                 public static void Ingresarcarro(City parking,int xinicial,int yinicial, Robot karel){
