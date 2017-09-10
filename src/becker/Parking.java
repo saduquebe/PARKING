@@ -53,7 +53,7 @@ public class Parking {
         String placa=JOptionPane.showInputDialog(null,"placa");
                 Thing obj= new Thing(parking,xinicial,yinicial,Direction.EAST);
                 Carros carro= new Carros(placa);
-                carro.obj=obj;
+                carro.obj =obj;
     }
 
     public static void volvercarril(Robot karel){
@@ -120,6 +120,74 @@ public class Parking {
         }
     }
     
+                                public static void dejarZonaTemp(Robot karel){
+            
+        for (int i=0; i<5; i++){
+            karel.move();
+        }
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        if(karel.canPickThing()){
+            karel.move();
+            if(karel.canPickThing()){
+                karel.move();
+                if(karel.canPickThing()){
+                    karel.putThing();
+                }
+                else { karel.putThing();
+                karel.move();
+                }
+            }
+            else { karel.putThing();
+            karel.move();
+            karel.move();}                   
+                                }
+        else { karel.putThing();
+        karel.move();
+        karel.move();
+        karel.move();}
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.turnLeft();
+        
+    }
+                                
+                                public static void cogerZonaTemp(Robot karel){
+            
+        for (int i=0; i<5; i++){
+            karel.move();
+        }
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.move();
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        karel.turnLeft();
+        karel.turnLeft();
+        for(int i=0;i<3;i++){
+        if(karel.canPickThing()){
+        karel.pickThing();
+        }
+        else{karel.move();}}
+        
+                                }
     
     public static void main(String[] args){
                 int xinicial=-2; int yinicial=19;
@@ -216,6 +284,7 @@ public class Parking {
         Wall w83 = new Wall(parking, -3,18, Direction.EAST);
         Wall w84 = new Wall(parking, -1,18, Direction.EAST);
         menu(parking,xinicial,yinicial);
+        dejarZonaTemp(karel);
         IrParking1(karel);
         revisarzona(karel);
         karel.pickThing();
