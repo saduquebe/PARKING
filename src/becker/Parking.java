@@ -7,7 +7,6 @@
 package becker;
 
 import becker.robots.*;
-import java.awt.Color;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
@@ -16,6 +15,41 @@ import javax.swing.JOptionPane;
  * @author santi
  */
 public class Parking {
+
+    public static void sacarcarro(Robot karel, String placa, String zona,Carros carro){
+        int x=0;
+        switch(zona)
+        {
+            case "1":{
+                IrParking1(karel);
+                for (int i = 0; i < 5; i++) {
+  
+               karel.move();
+               karel.pickThing();
+                }
+                break;
+            }
+            case "2":
+            {
+                IrParking2(karel);
+                for (int i = 0; i < 5; i++) {
+  
+               karel.move();
+    
+                }
+                break;
+            }
+            case "3":{
+                IrParking3(karel);
+                for (int i = 0; i < 5; i++) {
+  
+               karel.move();
+               karel.pickThing(carro.obj);
+                }
+                break;
+            }
+        }
+    }
         public static void girarderecha(Robot karel){
         for (int j=0; j<3; j++){
             karel.turnLeft();
@@ -132,8 +166,8 @@ public class Parking {
                 Calendar calendario = new GregorianCalendar();
                 int hora =calendario.get(Calendar.HOUR_OF_DAY);
                 int minutos = calendario.get(Calendar.MINUTE);
-                Carros carro= new Carros(placa,hora,minutos);
-                carro.obj =obj;
+                Carros carro= new Carros(placa,obj);
+                
                 karel.pickThing();
                 result=review(karel);
                 if(result==1){
@@ -324,7 +358,6 @@ public class Parking {
                 int xinicial=-2; int yinicial=18;
         City parking = new City();
         Robot karel = new Robot(parking, -2, 18, Direction.WEST,1);
-        boolean a=true;
         //parqueadero 1
         Wall w1 = new Wall(parking, -1,1, Direction.WEST);
         Wall w2 = new Wall(parking, -2,1, Direction.WEST);
@@ -419,6 +452,9 @@ public class Parking {
         Thing cosa2=new Thing(parking,-6,2,Direction.EAST);
         Thing cosa3=new Thing(parking,-8,6,Direction.EAST);
         Thing cosa4=new Thing(parking,-7,6,Direction.EAST);
+        Thing cosa5=new Thing(parking,-7,10,Direction.EAST);
+        Thing cosa6=new Thing(parking,-8,10,Direction.EAST);
+        
         int opcion= menu();
            switch(opcion){
         case 1:{
@@ -426,6 +462,10 @@ public class Parking {
             break;
         }
         case 2:{
+            String placa=JOptionPane.showInputDialog(null,"placa");
+            Carros carro= new Carros(placa,cosa);
+            String zona=JOptionPane.showInputDialog(null, "zona");
+           sacarcarro(karel,placa,zona,carro);
             
             break;
         }
@@ -435,5 +475,6 @@ public class Parking {
         
            }
     }
+    
 }
 
