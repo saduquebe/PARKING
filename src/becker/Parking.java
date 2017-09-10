@@ -195,7 +195,29 @@ public class Parking {
         }
         while(karel.canPickThing()!=true);
         }
-    
+    public static void menu(){
+    int opcion=0; 
+    String op="";
+    op=JOptionPane.showInputDialog("SELECCIONE UNA OPCION= \n"
+            + "1. Ingresar un vehiculo\n"
+            + "2.Sacar un vehiculo\n"
+            + "3.mostrar vehiculos de una seccion\n"
+            + "4.Generar reporte de ingresos");
+    opcion=Integer.parseInt(op);
+    switch(opcion){
+        case 1:{
+            Ingresarcarro();
+            break;
+        }
+        case 2:{
+            
+            break;
+        }
+        case 3:{
+            break;
+        }
+    }
+}
     public static void Ingresarcarro(){
     String placa=JOptionPane.showInputDialog(null,"placa");
     }
