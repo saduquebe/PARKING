@@ -47,15 +47,90 @@ public class Parking {
     opcion=Integer.parseInt(op);
  return opcion;
     }
+ public static int review(Robot karel){
+     int cont1=0; int cont2=0; int cont3=0; int numero=0;
+     IrParking1(karel);
+     do{
+         karel.move();
+     }
+     while(karel.frontIsClear());
+     girar180(karel);
+     for (int i = 0; i < 5; i++) {
+         if(karel.canPickThing()){
+             cont1++;
+             }
+         karel.move();
+     }
+     karel.move();
+     VolverParking1(karel);
+     IrParking2(karel);
+     do{
+         karel.move();
+     }
+     while(karel.frontIsClear());
+     girar180(karel);
+     for (int i = 0; i < 5; i++) {
+         if(karel.canPickThing()){
+             cont2++;
+             }
+         karel.move();
+     }
+     karel.move();
+     VolverParking2(karel);   
+      IrParking3(karel);
+     do{
+         karel.move();
+     }
+     while(karel.frontIsClear());
+     girar180(karel);
+     for (int i = 0; i < 5; i++) {
+         if(karel.canPickThing()){
+             cont3++;
+             }
+         karel.move();
+     }
+     karel.move();
+     VolverParking3(karel);
+     if((cont1<cont2)&&(cont2<cont3)){
+         numero=1;
+     }
+     else if((cont2<cont1)&&(cont1<cont3)){
+        numero=2;
+     }
+     else if((cont3<cont2)&&(cont2<cont1)){
+         numero= 3;
+     }
+     else if(cont1==cont2){
+         numero = (int) (Math.random() * 2) + 1;
+     }
+     else if(cont2==cont3){
+      numero = (int) (Math.random() * 3) + 2;
+     }    
+     return numero;
+ }
                             public static void Ingresarcarro(City parking,int xinicial,int yinicial, Robot karel){
-
+                                        int result;
         String placa=JOptionPane.showInputDialog(null,"placa");
                 Thing obj= new Thing(parking,xinicial,yinicial,Direction.EAST);
                 Carros carro= new Carros(placa);
                 carro.obj =obj;
                 karel.pickThing();
+                result=review(karel);
+                if(result==1){
                 IrParking1(karel);
+                
                 revisarzona(karel);
+                }
+                else if(result==2){
+                 IrParking2(karel);
+                
+                revisarzona(karel);
+                }
+                else if(result==3){
+                 IrParking3(karel);
+                
+                revisarzona(karel);
+                }
     }
 
     public static void volvercarril(Robot karel){
@@ -316,6 +391,11 @@ public class Parking {
         Wall w82 = new Wall(parking, -4,18, Direction.SOUTH);
         Wall w83 = new Wall(parking, -3,18, Direction.EAST);
         Wall w84 = new Wall(parking, -1,18, Direction.EAST);
+        Thing cosa=new Thing(parking,-8,2,Direction.EAST);
+        Thing cosa1=new Thing(parking,-7,2,Direction.EAST);
+        Thing cosa2=new Thing(parking,-6,2,Direction.EAST);
+        Thing cosa3=new Thing(parking,-8,6,Direction.EAST);
+        Thing cosa4=new Thing(parking,-7,6,Direction.EAST);
         int opcion= menu();
            switch(opcion){
         case 1:{
