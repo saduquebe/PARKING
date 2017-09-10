@@ -180,8 +180,8 @@ public class Parking {
         Wall w84 = new Wall(parking, -1,18, Direction.EAST);
         Thing carro= new Thing(parking,-8,2,Direction.NORTH);
         Thing carro1= new Thing(parking,-7,2,Direction.NORTH);
+        menu();
         IrParking1(karel);
-        Ingresarcarro();
         revisarzona(karel);
         karel.pickThing();
         girar180(karel);
