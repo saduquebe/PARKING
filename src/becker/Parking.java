@@ -25,7 +25,7 @@ public class Parking {
         }
         while(karel.canPickThing()!=true);
         }
-                        public static void menu(){
+                        public static void menu(City parking, int xinicial, int yinicial){
     int opcion=0; 
     String op="";
     op=JOptionPane.showInputDialog("SELECCIONE UNA OPCION= \n"
@@ -36,7 +36,7 @@ public class Parking {
     opcion=Integer.parseInt(op);
     switch(opcion){
         case 1:{
-            Ingresarcarro();
+            Ingresarcarro(parking, xinicial,yinicial);
             break;
         }
         case 2:{
@@ -48,10 +48,12 @@ public class Parking {
         }
     }
 }
-                            public static void Ingresarcarro(){
-        
+                            public static void Ingresarcarro(City parking,int xinicial,int yinicial){
+
         String placa=JOptionPane.showInputDialog(null,"placa");
-    
+                Thing obj= new Thing(parking,xinicial,yinicial,Direction.EAST);
+                Carros carro= new Carros(placa);
+                carro.obj=obj;
     }
 
     public static void volvercarril(Robot karel){
@@ -120,6 +122,7 @@ public class Parking {
     
     
     public static void main(String[] args){
+                int xinicial=-2; int yinicial=19;
         City parking = new City();
         Robot karel = new Robot(parking, -2, 18, Direction.WEST,1);
         boolean a=true;
@@ -212,9 +215,7 @@ public class Parking {
         Wall w82 = new Wall(parking, -4,18, Direction.SOUTH);
         Wall w83 = new Wall(parking, -3,18, Direction.EAST);
         Wall w84 = new Wall(parking, -1,18, Direction.EAST);
-        Thing carro= new Thing(parking,-8,2,Direction.NORTH);
-        Thing carro1= new Thing(parking,-7,2,Direction.NORTH);
-        menu();
+        menu(parking,xinicial,yinicial);
         IrParking1(karel);
         revisarzona(karel);
         karel.pickThing();
