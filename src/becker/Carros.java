@@ -13,8 +13,12 @@ public class Carros {
     public Thing obj;
     private String placa;
     public int zona;
-    public Carros(String placa) {
+    private int hora;
+    private int minutos;
+    public Carros(String placa,int hora, int minuto) {
         this.placa = placa;
+        this.hora=hora;
+        this.minutos=minuto;
     }
 
 
@@ -25,7 +29,23 @@ public class Carros {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
+ 
+    public double getHora() {
+        return hora;
+    }
 
+    public void setHora(int hora) {
+        this.hora = hora;
+    }
+
+    public int getMinutos() {
+        return minutos;
+    }
+
+    public void setMinutos(int minutos) {
+        this.minutos = minutos;
+    }
+    
     @Override
     public String toString() {
         return "Carros{" + "placa=" + placa + '}';
