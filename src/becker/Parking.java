@@ -104,6 +104,8 @@ public class Parking {
         for (int i=0; i<16; i++){
             karel.move();
         }
+        karel.turnLeft();
+        karel.turnLeft();
     }
                             public static void VolverParking2(Robot karel){
 
@@ -111,6 +113,8 @@ public class Parking {
         for (int i=0; i<12; i++){
             karel.move();
         }
+        karel.turnLeft();
+        karel.turnLeft();
     }
                                 public static void VolverParking3(Robot karel){
 
@@ -118,6 +122,8 @@ public class Parking {
         for (int i=0; i<8; i++){
             karel.move();
         }
+        karel.turnLeft();
+        karel.turnLeft();
     }
     
                                 public static void dejarZonaTemp(Robot karel){
@@ -309,14 +315,7 @@ public class Parking {
         Wall w83 = new Wall(parking, -3,18, Direction.EAST);
         Wall w84 = new Wall(parking, -1,18, Direction.EAST);
         menu(parking,xinicial,yinicial);
-        dejarZonaTemp(karel);
-        IrParking1(karel);
-        revisarzona(karel);
-        karel.pickThing();
-        girar180(karel);
-        volvercarril(karel);
-        VolverParking1(karel);
-        karel.putThing();
+        
     }
 
 }
