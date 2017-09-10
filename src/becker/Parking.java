@@ -8,6 +8,7 @@ package becker;
 
 import becker.robots.*;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 /**
  *
  * @author santi
@@ -180,15 +181,23 @@ public class Parking {
         Thing carro= new Thing(parking,-8,2,Direction.NORTH);
         Thing carro1= new Thing(parking,-7,2,Direction.NORTH);
         IrParking1(karel);
-        do{
-            karel.move();
-        }
-        while(karel.canPickThing()!=true);
+        Ingresarcarro();
+        revisarzona(karel);
         karel.pickThing();
         girar180(karel);
         volvercarril(karel);
         VolverParking1(karel);
         karel.putThing();
+    }
+            public static void revisarzona(Robot karel){
+        do{
+            karel.move();
+        }
+        while(karel.canPickThing()!=true);
+        }
+    
+    public static void Ingresarcarro(){
+    String placa=JOptionPane.showInputDialog(null,"placa");
     }
 
 }
