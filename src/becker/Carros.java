@@ -10,8 +10,9 @@ import becker.robots.*;
  * @author santi
  */
 public class Carros {
+    public Thing obj;
     private String placa;
-
+    public int zona;
     public Carros(String placa) {
         this.placa = placa;
     }
