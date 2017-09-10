@@ -23,14 +23,65 @@ public class Parking {
         }
     }
    
-    public static void paredes(String City){
-        
-        
-        
-       }
+    public static void IrParking1(Robot karel){
+        for (int i=0; i<16; i++){
+            karel.move();
+        }
+        for (int j=0; j<3; j++){
+            karel.turnLeft();
+        }
+        karel.move();
+        karel.move();
+    }
+    public static void IrParking2(Robot karel){
+        for (int i=0; i<12; i++){
+            karel.move();
+        }
+        for (int j=0; j<3; j++){
+            karel.turnLeft();
+        }
+        karel.move();
+        karel.move();
+    }
+    public static void IrParking3(Robot karel){
+        for (int i=0; i<8; i++){
+            karel.move();
+        }
+        for (int j=0; j<3; j++){
+            karel.turnLeft();
+        }
+        karel.move();
+        karel.move();
+    }
+    public static void VolverParking1(Robot karel){
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        for (int i=0; i<16; i++){
+            karel.move();
+        }
+    }
+    public static void VolverParking2(Robot karel){
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        for (int i=0; i<12; i++){
+            karel.move();
+        }
+    }
+    public static void VolverParking3(Robot karel){
+        karel.move();
+        karel.move();
+        karel.turnLeft();
+        for (int i=0; i<8; i++){
+            karel.move();
+        }
+    }
+    
+    
     public static void main(String[] args){
         City parking = new City();
-        Robot karel = new Robot(parking, -2, 17, Direction.SOUTH,1);
+        Robot karel = new Robot(parking, -2, 18, Direction.WEST,1);
         boolean a=true;
         //parqueadero 1
         Wall w1 = new Wall(parking, -1,1, Direction.WEST);
@@ -121,5 +172,6 @@ public class Parking {
         Wall w82 = new Wall(parking, -4,18, Direction.SOUTH);
         Wall w83 = new Wall(parking, -3,18, Direction.EAST);
         Wall w84 = new Wall(parking, -1,18, Direction.EAST);
+        IrParking1(karel);
     }
 }
