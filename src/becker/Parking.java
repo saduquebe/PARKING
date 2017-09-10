@@ -7,6 +7,7 @@
 package becker;
 
 import becker.robots.*;
+import java.awt.Color;
 /**
  *
  * @author santi
@@ -16,6 +17,13 @@ public class Parking {
         for (int j=0; j<3; j++){
             karel.turnLeft();
         }
+    }
+        public static void volvercarril(Robot karel){
+        int x=-2;
+        do{
+            karel.move();
+        }
+        while(karel.getStreet()!=x);
     }
     public static void girar180(Robot karel){
         for (int j=0; j<2; j++){
@@ -54,24 +62,21 @@ public class Parking {
         karel.move();
     }
     public static void VolverParking1(Robot karel){
-        karel.move();
-        karel.move();
+
         karel.turnLeft();
         for (int i=0; i<16; i++){
             karel.move();
         }
     }
     public static void VolverParking2(Robot karel){
-        karel.move();
-        karel.move();
+
         karel.turnLeft();
         for (int i=0; i<12; i++){
             karel.move();
         }
     }
     public static void VolverParking3(Robot karel){
-        karel.move();
-        karel.move();
+
         karel.turnLeft();
         for (int i=0; i<8; i++){
             karel.move();
@@ -172,6 +177,18 @@ public class Parking {
         Wall w82 = new Wall(parking, -4,18, Direction.SOUTH);
         Wall w83 = new Wall(parking, -3,18, Direction.EAST);
         Wall w84 = new Wall(parking, -1,18, Direction.EAST);
+        Thing carro= new Thing(parking,-8,2,Direction.NORTH);
+        Thing carro1= new Thing(parking,-7,2,Direction.NORTH);
         IrParking1(karel);
+        do{
+            karel.move();
+        }
+        while(karel.canPickThing()!=true);
+        karel.pickThing();
+        girar180(karel);
+        volvercarril(karel);
+        VolverParking1(karel);
+        karel.putThing();
     }
+
 }
