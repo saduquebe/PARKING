@@ -8,6 +8,8 @@ package becker;
 
 import becker.robots.*;
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 /**
  *
@@ -47,7 +49,7 @@ public class Parking {
     opcion=Integer.parseInt(op);
  return opcion;
     }
- public static int review(Robot karel){
+                             public static int review(Robot karel){
      int cont1=0; int cont2=0; int cont3=0; int numero=0;
      IrParking1(karel);
      do{
@@ -108,11 +110,14 @@ public class Parking {
      }    
      return numero;
  }
-                            public static void Ingresarcarro(City parking,int xinicial,int yinicial, Robot karel){
+                                public static void Ingresarcarro(City parking,int xinicial,int yinicial, Robot karel){
                                         int result;
         String placa=JOptionPane.showInputDialog(null,"placa");
                 Thing obj= new Thing(parking,xinicial,yinicial,Direction.EAST);
-                Carros carro= new Carros(placa);
+                Calendar calendario = new GregorianCalendar();
+                int hora =calendario.get(Calendar.HOUR_OF_DAY);
+                int minutos = calendario.get(Calendar.MINUTE);
+                Carros carro= new Carros(placa,hora,minutos);
                 carro.obj =obj;
                 karel.pickThing();
                 result=review(karel);
@@ -120,16 +125,19 @@ public class Parking {
                 IrParking1(karel);
                 
                 revisarzona(karel);
+                JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result);
                 }
                 else if(result==2){
                  IrParking2(karel);
                 
                 revisarzona(karel);
+               JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result);
                 }
                 else if(result==3){
                  IrParking3(karel);
                 
                 revisarzona(karel);
+                JOptionPane.showMessageDialog(null,"CARRO REGISTRADO EN LA ZONA: "+result);
                 }
     }
 
